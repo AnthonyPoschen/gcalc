@@ -51,6 +51,11 @@ app.on('ready', async () => {
     mainWindow = null
   })
 
+  // register keyboard inputs
+  //globalShortcut.register('0',() => numberkeyevent('0', mainWindow))
+  //globalShortcut.register('numpad0',() => numberkeyevent('0', mainWindow))
+
+
   if (process.env.NODE_ENV === 'development') {
     mainWindow.webContents.on('context-menu', (e, props) => {
       const { x, y } = props
@@ -263,6 +268,7 @@ app.on('ready', async () => {
     menu = Menu.buildFromTemplate(template)
     mainWindow.setMenu(menu)
   }
+
 })
 
 function numberkeyevent(Num, window) {

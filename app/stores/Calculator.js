@@ -1,5 +1,4 @@
 import { autorun, observable, computed, action } from 'mobx';
-import keydown, { Keys } from 'react-keydown';
 const ke = require('key-emit')(document);
 
 class CalculatorStore {
@@ -111,7 +110,7 @@ class CalculatorStore {
       // if we want to do a minus it should only push if we see a / or * and replace a +
       if(Operation == "-") {
         if(Sequence[indexPos] == "/" ) {
-          
+
         }
       }
       
