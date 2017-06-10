@@ -1,6 +1,6 @@
 {
   "presets": ["es2015", "stage-0", "react"],
-  "plugins": ["typecheck", "syntax-flow", "transform-flow-strip-types", "add-module-exports", "syntax-decorators", "transform-decorators-legacy"],
+  "plugins": ["typecheck", "syntax-flow", "transform-flow-strip-types", "add-module-exports", "syntax-decorators", "transform-decorators-legacy","transform-class-properties"],
   "env": {
     "production": {
       "presets": ["react-optimize"],

@@ -80,6 +80,7 @@
   },
   "dependencies": {
     "electron-debug": "^1.0.1",
+    "key-emit": "0.0.4",
     "mobx": "^2.4.4",
     "mobx-react": "^3.5.5",
     "mobx-react-devtools": "^4.2.5",

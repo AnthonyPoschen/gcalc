@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, shell } from 'electron'
+import { app, BrowserWindow, Menu, shell, globalShortcut } from 'electron'
 
 let menu
 let template
@@ -37,7 +37,6 @@ app.on('ready', async () => {
     show: false,
     height: 360,
     width: 245,
-    maxHeight: 360,
     minHeight: 360,
   })
 
@@ -265,3 +264,15 @@ app.on('ready', async () => {
     mainWindow.setMenu(menu)
   }
 })
+
+function numberkeyevent(Num, window) {
+    if(!window.isFocused()){
+      console.log("Not focused")
+      return
+    }
+    window.webContents.sendInputEvent({
+      type: 'keydow',
+      keyCode: Num
+    })
+    console.log('KEY PRESSED')
+  }

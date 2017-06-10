@@ -6,28 +6,16 @@ const remote = require('electron').remote;
 export default class App extends React.Component {
   render() {
     const { height, width } = remote.getCurrentWindow().getBounds();
+
     return (
-      <div style={{ height: height - 25, width: width, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-        <marquee><pre>Hello poop!</pre></marquee>
-        <marquee><pre>    Hello poop!</pre></marquee>
-        <marquee><pre>        Hello poop!</pre></marquee>
-        <marquee><pre>            Hello poop!</pre></marquee>
-        <marquee><pre>                Hello poop!</pre></marquee>
-        <marquee><pre>                    Hello poop!</pre></marquee>
-        <marquee><pre>                        Hello poop!</pre></marquee>
-        <marquee><pre>                            Hello poop!</pre></marquee>
-        <marquee><pre>                                Hello poop!</pre></marquee>
-        <marquee><pre>                                    Hello poop!</pre></marquee>
-        <marquee><pre>                                        Hello poop!</pre></marquee>
-        <marquee><pre>                                            Hello poop!</pre></marquee>
-        <marquee><pre>                                                Hello poop!</pre></marquee>
-        <marquee><pre>                                                    Hello poop!</pre></marquee>
-        <marquee><pre>                                                        Hello poop!</pre></marquee>
-        <marquee><pre>                                                            Hello poop!</pre></marquee>
-        <marquee><pre>                                                                Hello poop!</pre></marquee>
-        <marquee><pre>                                                                    Hello poop!</pre></marquee>
-        <marquee><pre>                                                                        Hello poop!</pre></marquee>
-        <marquee><pre>                                                                            Hello poop!</pre></marquee>
+      <div>
+        <div>
+          {this.props.store.LastSequenceString}
+        </div>
+        <div>
+          {this.props.store.LastSequenceSum}
+        </div>
+      
       </div>
     );
   }
