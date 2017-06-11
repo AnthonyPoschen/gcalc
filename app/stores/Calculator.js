@@ -92,15 +92,16 @@ class CalculatorStore {
       }
       return
     }
-    var curvalue = Sequence[indexPos]
+    var curValue = Sequence[indexPos]
+    var previousValue = Sequence[indexPos-1]
 
     // if operator already present. Overwrite checks / handling 
-    if(isOperator(curvalue)) {
+    if(isOperator(curValue)) {
       // these should replace whatever operator is present in the chain
       if(Operation == "/" || Operation == "*" || Operation == "+") {
         // edge case that we are doing something with multiple operators in a row
         // i.e 10 + - and go to replace the - with a times or divide
-        while(Sequence[indexPos-1] != undefined && isOperator(Sequence[indexPos-1])){
+        while(previousValue != undefined && isOperator(previousValue)){
           indexPos--
           Sequence.pop()
         }
@@ -109,12 +110,18 @@ class CalculatorStore {
       }
       // if we want to do a minus it should only push if we see a / or * and replace a +
       if(Operation == "-") {
-        if(Sequence[indexPos] == "/" ) {
-
+        if(curValue == "/" || curValue == "*") {
+          Sequence.push(Operation)
+          return
+        }
+        if(curValue == "-" || curValue == "+") {
+          Sequence[indexPos] = Operation
+          return
         }
       }
       
     }
+    // push this to the back
     Sequence.push(Operation)
     
   }    
@@ -141,11 +148,5 @@ function isOperator(v): boolean {
   var operators = ["+","-","/","*","(",")"]
   return operators.find((o) => {return v == o}) != undefined ? true:false 
 }
-// Continously check if the state gets corrupted / initial setup
-autorun(() => {
-  console.log("Current Sequence")
-  console.log(state)
-  console.log(CalcStore.LastSequence)
-})
 
 export default CalcStore;
