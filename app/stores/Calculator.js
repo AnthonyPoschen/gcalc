@@ -1,4 +1,5 @@
 import { autorun, observable, computed, action } from 'mobx';
+import {TotalSum} from './Calculator_Util'
 const ke = require('key-emit')(document);
 
 class CalculatorStore {
@@ -45,11 +46,16 @@ class CalculatorStore {
 
   @computed get LastSequenceSum() {
     var seq = this.LastSequence
-    var res = 0
-    seq.forEach((v) => {
-      
-    })
-    return "N/A"
+    if(seq.length == 0) {
+      return "N/A"
+    }
+    var res = TotalSum(seq)
+    return res
+  }
+
+  // TODO Implement this with the button and change the way +- works in code :Z
+  @action flipPosNeg(value: bool) {
+    // flip the last value in the sequence if the value has not been summed, otherwise flip the answer.
   }
 
   // Adds a number to the currently last Sequence
@@ -126,7 +132,7 @@ class CalculatorStore {
     
   }    
 }
-const state =window.state = observable([])
+const state = window.state = observable([])
 const CalcStore = window.store = new CalculatorStore();
 
 
