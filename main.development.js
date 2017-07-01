@@ -42,7 +42,7 @@ app.on('ready', async () => {
   // Remove the top window completely
   mainWindow.setMenu(null)
   mainWindow.loadURL(`file://${__dirname}/app/index.html`)
-
+  mainWindow.setTitle("gcalc")
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show()
     mainWindow.focus()

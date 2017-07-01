@@ -16,10 +16,6 @@ export default class App extends React.Component {
         <TextZone store={this.props.store}/>
         <ButtonZone store={this.props.store}/>
       </div>
-
-
-      
-
     );
   }
 }

@@ -33,6 +33,8 @@ export default class ButtonZone extends React.Component {
                     <Button onClick={() => this.props.store.addNumber(".")}>.</Button>
                     <Button>=</Button>
                     <Button onClick={() => this.props.store.addOperation("+")}>+</Button>
+                    <Button onClick={() => this.props.store.addOperation("(")}>(</Button>
+                    <Button onClick={() => this.props.store.addOperation(")")}>)</Button>
                 </Row>
             </Grid>
 

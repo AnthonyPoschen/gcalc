@@ -92,6 +92,7 @@
     "electron-debug": "^1.0.1",
     "jquery": "^3.2.1",
     "key-emit": "0.0.4",
+    "mathjs": "^3.13.3",
     "mobx": "^2.4.4",
     "mobx-react": "^3.5.5",
     "mobx-react-devtools": "^4.2.5",
@@ -99,6 +100,7 @@
     "react-bootstrap": "^0.31.0",
     "react-dom": "^15.5.4",
     "react-keydown": "^1.7.3",
+    "react-motion": "^0.5.0",
     "source-map-support": "^0.4.2",
     "webpack-dev-server": "^2.4.5",
     "webpack-isomorphic-tools": "^3.0.2"
