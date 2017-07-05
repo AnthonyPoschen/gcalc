@@ -1,7 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Grid , Row , Col  } from 'react-bootstrap'
+//import { Grid , Row , Col, GridProps  } from 'react-bootstrap'
 import {Motion, spring} from 'react-motion';
+
+import PropTypes from 'prop-types';
+import Grid from 'material-ui/Grid';
 
 @observer
 export default class TextZone extends React.Component {
@@ -15,16 +18,18 @@ export default class TextZone extends React.Component {
             textAlign:'right',
             fontSize:'45px',
             height:'50px',
-            whiteSpace: 'nowrap',
-            overflow: 'hidden',
-            
+            //whiteSpace: 'nowrap',
+            //overflow: 'hidden',
+            paddingRight: '20px',
+            paddingTop: '5px'
         }
 
         var resultStyle = {
             height:'50px',
             fontSize:'16px',
             textAlign:'right',
-            whiteSpace: 'nowrap',
+            //whiteSpace: 'nowrap',
+            paddingRight: '20px'
             
         }
         var MediumLength = 14;
@@ -46,15 +51,15 @@ export default class TextZone extends React.Component {
         }
 
         return (
-            <Grid style={textAreaStyle} fluid={true}>
+            <Grid container direction="column" style={textAreaStyle}>
                     <Motion style={{x: spring(summed ? -50 : 0)}}>
                         {({x}) => <div style={{
                             WebkitTransform: `translate3d(0, ${x}px, 0)`,
                             transform: `translate3d(0, ${x}px, 0)`
                         }}>
-                        <Row xs={8} md={4} style={equationStyle}>
+                        <Grid item xs={12} style={equationStyle}>
                             {inputText}
-                        </Row>
+                        </Grid>
                         </div>}
                     </Motion>
                     <Motion style={{x: spring(summed ? -50 : 0)}}>
@@ -62,12 +67,13 @@ export default class TextZone extends React.Component {
                             WebkitTransform: `translate3d(0, ${x}px, 0)`,
                             transform: `translate3d(0, ${x}px, 0)`
                         }}>
-                        <Row xs={8} md={4} style={resultStyle}>
+                        <Grid item xs={12} style={resultStyle}>
                             {this.props.store.LastSequenceSumDisplay}
-                        </Row>
+                        </Grid>
                         </div>}
                     </Motion>
             </Grid>
+
         )
     }
 }

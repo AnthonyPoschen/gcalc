@@ -63,7 +63,8 @@ class CalculatorStore {
   @action addNumber(value : string) {
     var {arrayPos,indexPos} = this.LastSequencePos()
     var Sequence = this.LastSequence
-
+    var curValue = Sequence[indexPos]
+    var MaxNumberLength = 15
     if(Sequence[indexPos] == "=") {
       this.clear()
       Sequence = this.LastSequence
@@ -80,17 +81,21 @@ class CalculatorStore {
         return
       }
     }
+    // Max Number length because the math library does weird shit above this for now
+    if(curValue.length >= MaxNumberLength) {
+      return
+    }
     if(isOperator(Sequence[indexPos])){
       if(Sequence[indexPos] != "-" && isOperator(Sequence[indexPos])) {
-        Sequence.push(value)
-        return
+          Sequence.push(value)
       }
       if(Sequence[indexPos] == "-" && !isOperator(Sequence[indexPos-1])) {
         Sequence.push(value)
-        return
       }
+      return
     }
-    Sequence[indexPos] += value
+    if(Sequence.length < MaxNumberLength)
+      Sequence[indexPos] += value
     
   }
   // Removes one element from the Sequence

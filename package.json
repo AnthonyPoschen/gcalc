@@ -92,6 +92,8 @@
     "electron-debug": "^1.0.1",
     "jquery": "^3.2.1",
     "key-emit": "0.0.4",
+    "material-ui": "^1.0.0-alpha.21",
+    "material-ui-icons": "^1.0.0-alpha.19",
     "mathjs": "^3.13.3",
     "mobx": "^2.4.4",
     "mobx-react": "^3.5.5",
@@ -102,6 +104,7 @@
     "react-keydown": "^1.7.3",
     "react-motion": "^0.5.0",
     "source-map-support": "^0.4.2",
+    "typeface-roboto": "0.0.29",
     "webpack-dev-server": "^2.4.5",
     "webpack-isomorphic-tools": "^3.0.2"
   }
