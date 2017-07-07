@@ -85,17 +85,22 @@ class CalculatorStore {
     if(curValue.length >= MaxNumberLength) {
       return
     }
+
     if(isOperator(Sequence[indexPos])){
-      if(Sequence[indexPos] != "-" && isOperator(Sequence[indexPos])) {
+      // if this isnt a negative operator
+      if(Sequence[indexPos] != "-") {
           Sequence.push(value)
-      }
-      if(Sequence[indexPos] == "-" && !isOperator(Sequence[indexPos-1])) {
+          return
+      } 
+      // since this is a negative Index, check if the previous is also a operator
+      if (!isOperator(Sequence[indexPos-1])) {
+        // its not a operator so dont make this a negative value instead push it as a seperate element (for visual reasons)
         Sequence.push(value)
-      }
-      return
+        return
+      } 
     }
-    if(Sequence.length < MaxNumberLength)
-      Sequence[indexPos] += value
+    
+    Sequence[indexPos] += value
     
   }
   // Removes one element from the Sequence
