@@ -31,7 +31,7 @@ export function TotalSum(sequence, recursion = false) {
     res = math.eval(str)
     //res = cleanEval(str)
     if (res == "Infinity") {
-        return "0"
+        return ""
     }
     return res
 }

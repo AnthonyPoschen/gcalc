@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import ButtonZone from './ButtonZone'
 import TextZone from './TextZone'
 import Divider from "material-ui/Divider"
+import Grid from "material-ui/Grid"
 const remote = require('electron').remote;
 
 @observer
@@ -15,12 +16,24 @@ export default class App extends React.Component {
       width:'100%',
       overflow: 'hidden'
     }
+    var FullWidth = {
+      width:'100%',
+      maxWidth:'100%'
+    }
     return (
 
       <div style={fullScreen}>
-        <TextZone store={this.props.store}/>
-        <Divider />
-        <ButtonZone store={this.props.store} style={fullScreen}/>
+        <Grid container direction="column" align="stretch" gutter={0} style={fullScreen}>
+          <Grid item xs={3} style={FullWidth}>
+            <TextZone store={this.props.store}/>
+            <Divider />
+          </Grid>
+          <Grid item xs={9} style={FullWidth}>
+            <ButtonZone store={this.props.store} style={fullScreen}/>
+          </Grid>
+          
+        </Grid>
+
       </div>
     );
   }

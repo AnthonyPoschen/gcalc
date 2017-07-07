@@ -37,7 +37,10 @@ class CalculatorStore {
       if(!isOperator(element) && element != "=") {
         element = Number(element).toLocaleString()
       }
-      res += element + " "
+      if(res != "") {
+        res += " "
+      }
+      res += element
     });
     return res
   }
@@ -52,6 +55,7 @@ class CalculatorStore {
     return res
   }
 @computed get LastSequenceSumDisplay() {
+  if(this.LastSequence.length == 0) return ""
   return Number(this.LastSequenceSum).toLocaleString()
 }
   // TODO Implement this with the button and change the way +- works in code :Z
