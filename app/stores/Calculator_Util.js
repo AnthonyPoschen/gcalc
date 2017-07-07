@@ -40,6 +40,6 @@ function cleanEval(fn) {
 }
 
 export function isOperator(v): boolean {
-  var operators = ["+","-","/","*","(",")"]
+  var operators = ["+","-","/","*","(",")","^","%"]
   return operators.find((o) => {return v == o}) != undefined ? true:false 
 }

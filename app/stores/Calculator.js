@@ -188,6 +188,7 @@ class CalculatorStore {
       }
       
     }
+    console.log(Operation)
     // push this to the back
     Sequence.push(Operation)
     
