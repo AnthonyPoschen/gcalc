@@ -35,9 +35,10 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    height: 360,
-    width: 245,
-    minHeight: 360,
+    height: 500,
+    width: 400,
+    minHeight: 500,
+    minWidth:400,
   })
   // Remove the top window completely
   mainWindow.setMenu(null)
